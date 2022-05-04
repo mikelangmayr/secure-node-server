@@ -5,9 +5,9 @@ import cookieParser from 'cookie-parser'
 import csurf from 'csurf'
 import * as sqlite3 from 'sqlite3'
 import sqliteSessionStore from 'express-session-sqlite'
-import { createInMemoryDB } from './databaseService.mjs'
-import { postLogin, authenticated, getLogout } from './loginService.mjs'
-import { getUsage, postPayment, getBilling } from './statsService.mjs'
+import { createInMemoryDB } from './services/databaseService.mjs'
+import { postLogin, authenticated, getLogout } from './services/loginService.mjs'
+import { getUsage, postPayment, getBilling } from './services/statsService.mjs'
 
 const app = express()
 const port = 3000

@@ -2,10 +2,15 @@
 ## Features
  - Authentication with JWT Tokens
  - Password hashing with salt
- - SQLite
+ - SQLite (In memory)
  - CSRF
  - Jade template engine
  - Sessions stored in DB
+
+## Installation
+```
+yarn install && node index.mjs
+```
 
 ## Authors
  - Gipson Bachman
