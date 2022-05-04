@@ -13,8 +13,10 @@ yarn install && node index.mjs
 ```
 The webserver will start at
 ```
-localhost:3000
+https://localhost:3000
 ```
+(beware self-signed certificate)
+
 Login details:
 - mike : password
 - clarissa : password

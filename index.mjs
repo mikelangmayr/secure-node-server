@@ -4,6 +4,8 @@ import session from 'express-session'
 import cookieParser from 'cookie-parser'
 import csurf from 'csurf'
 import * as sqlite3 from 'sqlite3'
+import https from 'https'
+import fs from 'fs'
 import sqliteSessionStore from 'express-session-sqlite'
 import { createInMemoryDB } from './services/databaseService.mjs'
 import { postLogin, authenticated, getLogout } from './services/loginService.mjs'
@@ -35,9 +37,23 @@ const csrfProtection = csurf({ cookie: true })
 createInMemoryDB()
 
 // Start listening...
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`)
-})
+// app.listen(port, () => {
+//   console.log(`Server listening on port ${port}`)
+// })
+
+https
+  .createServer(
+    {
+      key: fs.readFileSync("certs/server.key"),
+      cert: fs.readFileSync("certs/server.cert"),
+    },
+    app
+  )
+  .listen(port, function () {
+    console.log(
+      'Server listening on port ${port}! Go to https://localhost:3000/'
+    );
+  });
 
 // Routes
 app.get("/dashboard", csrfProtection, authenticated, (req, res) => {
