@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+        title ISP Monthly Bill
+    body
+        block content
+            h1=title
+            p 
+                a(href="/dashboard") Back to dashboard
+            p ISP Monthly Bill of #{name}!
+            p Amount open this month: #{billingAmount} $
+            p 
+                Strong Payment
+                form(method="POST", action="/payment")
+                    div
+                        span.label Amount    
+                        input(type="text", name="paymentAmount")
+                        button(type="submit") Pay
+                        input(type="hidden", name="_csrf", value="#{csrfToken}")
+                    div
+                        
+            div
+                a(href="/logout") Logout

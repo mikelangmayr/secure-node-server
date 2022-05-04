@@ -1,0 +1,17 @@
+doctype html
+html
+    head
+        title Login
+    body
+        block content
+            h1= title
+            form(method="POST", action="/login")
+                pre
+                    span.label Username    
+                    input(type="text", name="username")
+                pre
+                    span.label Password    
+                    input(type="password", name="password")
+                    input(type="hidden", name="_csrf", value="#{csrfToken}")
+                div
+                    button(type="submit") Login

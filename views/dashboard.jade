@@ -1,0 +1,16 @@
+doctype html
+html
+    head
+        title Dashboard
+    body
+        block content
+            h1=title
+            p Welcome to your ISP dashbboard #{name}!
+            div
+                ul 
+                    li 
+                        a(href="/usage") Usage 
+                    li
+                        a(href="/billing") Billing  
+            div
+                a(href="/logout") Logout

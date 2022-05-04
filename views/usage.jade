@@ -1,0 +1,13 @@
+doctype html
+html
+    head
+        title ISP Monthly Usage
+    body
+        block content
+            h1=title
+            p 
+                a(href="/dashboard") Back to dashboard
+            p ISP Monthly Usage of #{name}!
+            p #{usage} MB have been downloaded this month  
+            div
+                a(href="/logout") Logout
