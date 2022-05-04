@@ -10,8 +10,17 @@
 
 ## Installation
 ```
-yarn install && node index.mjs
+yarn install
 ```
+Create certificates
+```
+openssl req -nodes -new -x509 -keyout server.key -out server.cert
+```
+Run server
+```
+node index.mjs
+```
+
 The webserver will start at
 ```
 https://localhost:3000
