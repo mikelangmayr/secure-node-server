@@ -1,4 +1,4 @@
-# Hardened Node.JS Application
+# Hardened Node.js App - ISP Dashboard
 ## Features
  - Authentication with JWT Tokens
  - Password hashing with salt
