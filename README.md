@@ -6,6 +6,7 @@
  - CSRF
  - Jade template engine
  - Sessions stored in DB
+ - HTTPS
 
 ## Installation
 ```
