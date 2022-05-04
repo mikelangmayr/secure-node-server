@@ -11,6 +11,14 @@
 ```
 yarn install && node index.mjs
 ```
+The webserver will start at
+```
+localhost:3000
+```
+Login details:
+- mike : password
+- clarissa : password
+- gipson : password
 
 ## Authors
  - Gipson Bachman
