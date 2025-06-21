@@ -44,7 +44,14 @@ export async function getStatsById(id) {
 }
 
 export async function makePayment(id, paymentAmount) {
+  // Validate paymentAmount is a positive integer
+  if (!Number.isFinite(Number(paymentAmount)) || Number(paymentAmount) <= 0) {
+    return { error: 'Invalid payment amount' }
+  }
   const stats = await getStatsById(id)
+  if (!stats) {
+    return { error: 'User stats not found' }
+  }
 
   // check if amount is too high
   if (Number(paymentAmount) > Number(stats.billingAmount)) {

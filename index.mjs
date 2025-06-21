@@ -3,7 +3,7 @@ import bodyParser from 'body-parser'
 import session from 'express-session'
 import cookieParser from 'cookie-parser'
 import csurf from 'csurf'
-import * as sqlite3 from 'sqlite3'
+import pkg from 'sqlite3'
 import sqliteSessionStore from 'express-session-sqlite'
 import { createInMemoryDB } from './services/databaseService.mjs'
 import { postLogin, authenticated, getLogout } from './services/loginService.mjs'
@@ -18,11 +18,11 @@ app.use(bodyParser.json())
 app.use(cookieParser())
 
 // use express sessions and store in db
-app.use(session({ secret: "super secret string" }));
 const SqliteStore = sqliteSessionStore.default(session)
 app.use(session({
+    secret: process.env.SESSION_SECRET || 'default_secret',
     store: new SqliteStore({
-        driver: sqlite3.Database,
+        driver: pkg.Database,
         path: ':memory:',
         ttl: 604800000, // 1 week
     }),
